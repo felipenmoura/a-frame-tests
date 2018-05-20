@@ -1,0 +1,83 @@
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+<!-- <script src="https://raw.githubusercontent.com/bryik/aframe-controller-cursor-component/master/dist/aframe-controller-cursor-component.min.js"></script> -->
+  
+
+<a-scene>
+      <!-- <a-entity id="rain" particle-system="preset: rain; color: #fff; particleCount: 200"></a-entity> -->
+
+      <a-entity id="ocean" ocean="density: 80; width: 50; depth: 50; speed: 4"
+                material="color: #f00; opacity: 0.75; metalness: 0; roughness: 1"
+                rotation="-90 0 0"></a-entity>
+  
+      <a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 4"
+                material="color: #f90; opacity: 0.5; metalness: 0; roughness: 1"
+                rotation="-90 0 0"></a-entity>
+  
+
+    <a-sky src="./sky.jpg"></a-sky>
+
+      <!-- <a-entity id="light" light="type: ambient; color: #555"
+                animation="property: light.color; easing: easeInOutQuad; dir: alternate; dur: 10000; to: #fff; loop: true;"></a-entity> -->
+      <a-entity id="light" light="type: ambient; color: #fff"></a-entity>
+      <a-entity id="light" light="type: spot; color: #fff" position="4 4 4"></a-entity>
+  
+          <a-box position="3 0.15 -5" rotation="0 45 0" color="#654"
+               animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 3 -0.10 -5; loop: true; delay: 500"></a-box>
+  
+        <a-entity class='cube' position="-1 0.15 -3" rotation="0 0 -5">
+            <a-animation 
+                attribute="rotation"
+                easing="linear"
+                direction="alternate"
+                dur="3000"
+                to="0 0 5"
+                repeat="indefinite"></a-animation>
+            <a-entity geometry="primitive: box; width: 1; depth: 1; height: 1;" position="0 0.15 0" rotation="0 45 0" material="color: #654;">
+                <a-animation 
+                    attribute="rotation"
+                    easing="linear"
+                    direction="normal"
+                    dur="60000"
+                    to="0 405 0"
+                    repeat="indefinite"></a-animation>
+                <a-animation
+                    attribute="position"
+                    easing="ease-in-out-quad"
+                    direction="alternate"
+                    dur="1000"
+                    to="0 -0.10 0"
+                    delay="100"
+                    repeat="indefinite"
+                    ></a-animation>
+                <a-animation 
+                    attribute="material.color"
+                    easing="ease-in-out-quad"
+                    direction="alternate"
+                    dur="1000"
+                    from="#99f"
+                    to="#bbf"
+                    repeat="indefinite"
+                    begin="mouseenter"
+                    end="mouseleave"
+                    visible="false"></a-animation>
+            </a-entity>
+                
+                
+        </a-entity>
+
+        <a-box position="-6 0.15 -8" rotation="0 45 0" color="#654"
+               animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: -6 -0.15 -8; loop: true"></a-box>
+  
+
+    <a-camera position="0 1.8 0" raycaster crawling-cursor>
+      <a-cursor></a-cursor>
+    </a-camera>
+    </a-scene>
+<a-entity hand-controls="right" controller-cursor></a-entity>
+
+
+<script src='./index.js'></script>
