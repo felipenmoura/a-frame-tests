@@ -13,8 +13,8 @@ window.addEventListener('load', function () {
     // alert('OMG')
   }
   function cubeHovered () {
-    // this.setAttribute('prev-color', this.getAttribute('color'))
-    // this.setAttribute('color', '#fff')
+    this.firstElementChild.setAttribute('prev-color', this.firstElementChild.getAttribute('material').color)
+    this.firstElementChild.setAttribute('material', 'color: #fff')
     // const anim = document.createElement('a-animation')
     // anim.id = "hover-animation-el"
     // anim.attribute = "material.color"
@@ -29,6 +29,6 @@ window.addEventListener('load', function () {
     // this.firstElementChild.appendChild(anim)
   }
   function cubeLeft () {
-    // this.setAttribute('color', this.getAttribute('prev-color'))
+    this.firstElementChild.setAttribute('material', 'color: ' + this.firstElementChild.getAttribute('prev-color'))
     // this.firstElementChild.removeChild(this.querySelector('#hover-animation-el'))
   }
